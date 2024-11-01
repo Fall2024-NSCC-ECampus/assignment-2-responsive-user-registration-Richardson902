@@ -4,14 +4,13 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import org.springframework.security.core.parameters.P;
 
 @Entity
 @Table(name="users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
     @NotBlank(message = "Username is required")

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
@@ -9,11 +9,14 @@
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="text-center">
             <h1>Home</h1>
-            <div class="mb-3">
-              <a href="/register" class="btn btn-primary">Register</a>
+            <div class="mb-3" sec:authorize="!isAuthenticated()">
+                <a href="/login" class="btn btn-primary w-100">Login</a>
             </div>
-            <div>
-                <a href="/users" class="btn btn-secondary">Users</a>
+            <div class="mb-3">
+                <a href="/users" class="btn btn-secondary w-100">Users</a>
+            </div>
+            <div class="mb-3">
+                <a href="/account" class="btn btn-danger w-100">Account</a>
             </div>
         </div>
     </div>
