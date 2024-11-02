@@ -60,20 +60,6 @@ public class UserController {
         return "account";
     }
 
-    //Post Mappings
-//    @PostMapping("/login")
-//    public String loginUser(@RequestParam String username, @RequestParam String password, Model model) {
-//        System.out.println("login request received with username: " + username + " and password: " + password);
-//        if (userService.authenticateUser(username, password)) {
-//            return "redirect:/users";
-//        }
-//        else {
-//            model.addAttribute("errorMessage", "Invalid username or password");
-//            return "login";
-//        }
-//
-//    }
-
     @PostMapping("/register")
     public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
         if (result.hasErrors()) {

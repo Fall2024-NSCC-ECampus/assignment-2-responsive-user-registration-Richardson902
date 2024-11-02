@@ -40,35 +40,26 @@ public class UserService implements UserDetailsService {
         userRepository.save(user);
     }
 
+
+    // For authentication
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        // Try to find user by given username
         Optional<User> userOptional = userRepository.findByUsername(username);
 
+        // If user is found, return user details from optional to Spring Security
         if(userOptional.isPresent()) {
-            User user = userOptional.get();
+            User user = userOptional.get(); // creates a user details object
 
             return org.springframework.security.core.userdetails.User
-                    .withUsername(user.getUsername())
-                    .password(user.getPassword())
-                    .roles("USER")
+                    .withUsername(user.getUsername()) // Set username
+                    .password(user.getPassword()) // Set password
+                    .roles("USER") // Set role
                     .build();
         } else {
             throw new UsernameNotFoundException("User not found");
         }
     }
-
-//    public boolean authenticateUser(String username, String password) {
-//        username = username.trim().toLowerCase();
-//
-//        Optional<User> userOptional = userRepository.findByUsername(username);
-//
-//        if(userOptional.isPresent()) {
-//            User user = userOptional.get();
-//            String hashesPassword = passwordEncoder.encode(password);
-//
-//            return passwordEncoder.matches(password, user.getPassword());
-//        }
-//        return false;
-//    }
 
 }
