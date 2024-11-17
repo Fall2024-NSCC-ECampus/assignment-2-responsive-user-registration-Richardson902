@@ -1,1 +1,27 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/mwszR8OO)
+# Responsive User Registration
+
+This project is a responsive user registration system built with Java, Spring Boot, and Maven. It includes user authentication, registration, and session management.
+
+## Features
+
+- User registration with validation
+- User login and logout
+- Session management with Spring Security
+- User role management
+- Schedule management for users
+
+## Technologies Used
+
+- Java
+- Spring Boot
+- Spring Security
+- Maven
+- Thymeleaf
+- Bootstrap
+
+## Usage
+
+- Register a new user at `/register`.
+- Login with your credentials at `/login`.
+- Access users list at `/users`.
+- Access user account details at `/account`.
